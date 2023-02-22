@@ -17,7 +17,7 @@ import model.HocPhan;
 import model.LopHoc;
 
 public class SinhVienUI extends javax.swing.JFrame {
-    
+
     private String MSSV;
 
     /**
@@ -27,13 +27,13 @@ public class SinhVienUI extends javax.swing.JFrame {
         initComponents();
         init();
     }
-    
+
     public SinhVienUI(String MSSV) {
         this.MSSV = MSSV;
         initComponents();
         init();
     }
-    
+
     public void init() {
         this.sinhVienUIController = new SinhVienUIController(this);
         this.hienThiSinhVien();
@@ -42,7 +42,7 @@ public class SinhVienUI extends javax.swing.JFrame {
         this.hienThiDiem();
         this.hienThiCPA();
         ActionListener action = new SinhVienUIController(this);
-        
+
         this.jButton_timKiemDiem.addActionListener(action);
         this.jButton_timKiemHocPhan.addActionListener(action);
         this.jButton_timKiemLopHoc.addActionListener(action);
@@ -495,7 +495,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void hienThiSinhVien() {
         ArrayList<SinhVien> listSinhVien = this.sinhVienUIController.hienThiSinhVien(this.MSSV);
         DefaultTableModel model = (DefaultTableModel) jTable_SinhVien.getModel();
@@ -513,7 +513,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    
+
     public void hienThiDiem() {
         ArrayList<Diem> listDiem = this.sinhVienUIController.hienThiDiem(this.MSSV);
         DefaultTableModel model = (DefaultTableModel) jTable_Diem.getModel();
@@ -530,7 +530,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    
+
     public void hienThiLopHoc() {
         ArrayList<LopHoc> listLopHoc = this.sinhVienUIController.hienThiLopHoc();
         DefaultTableModel model = (DefaultTableModel) jTable_LopHoc.getModel();
@@ -546,7 +546,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    
+
     public void hienThiHocPhan() {
         ArrayList<HocPhan> listHocPhan = this.sinhVienUIController.hienThiHocPhan();
         DefaultTableModel model = (DefaultTableModel) jTable_HocPhan.getModel();
@@ -560,7 +560,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    
+
     public void timKiemHocPhan(ArrayList<HocPhan> listHocPhan) {
         DefaultTableModel model = (DefaultTableModel) jTable_HocPhan.getModel();
         model.setRowCount(0);
@@ -573,7 +573,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    
+
     public void timKiemLopHoc(ArrayList<LopHoc> listLopHoc) {
         DefaultTableModel model = (DefaultTableModel) jTable_LopHoc.getModel();
         model.setRowCount(0);
@@ -588,7 +588,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    
+
     public void timKiemDiem(ArrayList<Diem> listDiem) {
         DefaultTableModel model = (DefaultTableModel) jTable_Diem.getModel();
         model.setRowCount(0);
@@ -604,7 +604,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             model.addRow(row);
         }
     }
-    
+
     public void hienThiCPA() {
         ArrayList<Diem> listDiem = this.sinhVienUIController.tinhtoanCPA(this.MSSV);
         int sotinchi = 0;
@@ -632,7 +632,7 @@ public class SinhVienUI extends javax.swing.JFrame {
             }
             tongdiem += diemhe4 * diem.getSoTinChi();
         }
-        this.jTextField_CPA.setText(String.valueOf(tongdiem / sotinchi));
+        this.jTextField_CPA.setText(String.valueOf(Math.round((tongdiem / sotinchi) * 100.0) / 100.0));
         this.jTextField_CPA.setEditable(false);
     }
     private SinhVienUIController sinhVienUIController;
@@ -679,79 +679,79 @@ public class SinhVienUI extends javax.swing.JFrame {
     public JTable getjTable_Diem() {
         return jTable_Diem;
     }
-    
+
     public void setjTable_Diem(JTable jTable_Diem) {
         this.jTable_Diem = jTable_Diem;
     }
-    
+
     public JTable getjTable_HocPhan() {
         return jTable_HocPhan;
     }
-    
+
     public void setjTable_HocPhan(JTable jTable_HocPhan) {
         this.jTable_HocPhan = jTable_HocPhan;
     }
-    
+
     public JTable getjTable_LopHoc() {
         return jTable_LopHoc;
     }
-    
+
     public void setjTable_LopHoc(JTable jTable_LopHoc) {
         this.jTable_LopHoc = jTable_LopHoc;
     }
-    
+
     public JTable getjTable_SinhVien() {
         return jTable_SinhVien;
     }
-    
+
     public void setjTable_SinhVien(JTable jTable_SinhVien) {
         this.jTable_SinhVien = jTable_SinhVien;
     }
-    
+
     public JComboBox<String> getjComboBox_TimKiemDiem() {
         return jComboBox_TimKiemDiem;
     }
-    
+
     public void setjComboBox_TimKiemDiem(JComboBox<String> jComboBox_TimKiemDiem) {
         this.jComboBox_TimKiemDiem = jComboBox_TimKiemDiem;
     }
-    
+
     public JComboBox<String> getjComboBox_TimKiemHocPhan() {
         return jComboBox_TimKiemHocPhan;
     }
-    
+
     public void setjComboBox_TimKiemHocPhan(JComboBox<String> jComboBox_TimKiemHocPhan) {
         this.jComboBox_TimKiemHocPhan = jComboBox_TimKiemHocPhan;
     }
-    
+
     public JComboBox<String> getjComboBox_TimKiemLopHoc() {
         return jComboBox_TimKiemLopHoc;
     }
-    
+
     public void setjComboBox_TimKiemLopHoc(JComboBox<String> jComboBox_TimKiemLopHoc) {
         this.jComboBox_TimKiemLopHoc = jComboBox_TimKiemLopHoc;
     }
-    
+
     public JTextField getjTextField_TuKhoaDiem() {
         return jTextField_TuKhoaDiem;
     }
-    
+
     public void setjTextField_TuKhoaDiem(JTextField jTextField_TuKhoaDiem) {
         this.jTextField_TuKhoaDiem = jTextField_TuKhoaDiem;
     }
-    
+
     public JTextField getjTextField_TuKhoaHocPhan() {
         return jTextField_TuKhoaHocPhan;
     }
-    
+
     public void setjTextField_TuKhoaHocPhan(JTextField jTextField_TuKhoaHocPhan) {
         this.jTextField_TuKhoaHocPhan = jTextField_TuKhoaHocPhan;
     }
-    
+
     public JTextField getjTextField_TuKhoaLopHoc() {
         return jTextField_TuKhoaLopHoc;
     }
-    
+
     public void setjTextField_TuKhoaLopHoc(JTextField jTextField_TuKhoaLopHoc) {
         this.jTextField_TuKhoaLopHoc = jTextField_TuKhoaLopHoc;
     }
@@ -763,6 +763,5 @@ public class SinhVienUI extends javax.swing.JFrame {
     public void setMSSV(String MSSV) {
         this.MSSV = MSSV;
     }
-    
-    
+
 }
